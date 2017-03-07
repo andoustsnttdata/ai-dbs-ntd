@@ -1,0 +1,12 @@
+class SfdcDb
+  include ActiveModel::Model
+
+  attr_accessor :id, :userid, :usertime, :usermes, :usermesen, :ansno, :feedbackdatetime, :feedbackjudge, :adminjudge, :created
+  
+  def save
+
+
+    
+  end
+  
+end

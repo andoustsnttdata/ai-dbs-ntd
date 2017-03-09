@@ -1,0 +1,6 @@
+select
+  feedbackdatetime__c,usermesen__c,usertime__c	,feedbackjudge__c,usermes__c,createddate,id,adminjudge__c,userid__c
+from
+  salesforce.case
+order by
+  systemmodstamp desc;

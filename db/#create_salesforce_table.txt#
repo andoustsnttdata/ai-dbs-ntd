@@ -1,0 +1,15 @@
+select
+  id,
+  userid__c,
+  usertime__c,
+  usermes__c,
+  usermesen__c,
+  ansno__c,
+  feedbackdatetime__c,
+  feedbackjudge__c,
+  adminjudge__c,
+  createddate
+from
+  salesforce.case
+order by
+  systemmodstamp desc;

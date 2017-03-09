@@ -15,14 +15,16 @@ class SfdcController < ApplicationController
       redirect_flg = true
     end
 
-
-    
-    unless redirect_flg
-      render :text => "success"
+    if redirect_flg
+      render :text => "{info: {status: false}}"
+    else
+      render :text => "{info: {status: true}}"
     end
   end
 
   def index
-    render :text => "error"
+    render :text => "test"
+    SfdcCase.set_datas()
+    
   end
 end

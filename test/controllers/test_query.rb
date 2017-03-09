@@ -4,6 +4,7 @@ require "json"
 
 
 uri = URI.parse("http://localhost:3000/sfdc/push")
+uri = URI.parse("http://ai-dbs-nttd.herokuapp.com/sfdc/push?h=Nttdata1")
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = false
 

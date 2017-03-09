@@ -1,3 +1,4 @@
+# coding: utf-8
 class SfdcController < ApplicationController
   def push
     # parameter check and redirect
@@ -23,8 +24,21 @@ class SfdcController < ApplicationController
   end
 
   def index
-    render :text => "test"
-    SfdcCase.set_datas()
+    datas = {"id" => Random.new.rand(100000),
+             "userid" => "testid",
+             "usertime" => Time.now,
+             "usermes" => "テストテスト",
+             "usermesen" => "test test",
+             "ansno" => "100",
+             "feedbackdatetime" => Time.now,
+             "feedbackjudge" => "1",
+             "adminjudge" => "0",
+             "created" => Time.now
+            }
     
+
+    SfdcCase.set_datas(datas)
+    
+    render :text => "test"    
   end
 end

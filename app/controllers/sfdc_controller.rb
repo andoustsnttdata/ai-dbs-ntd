@@ -2,25 +2,26 @@
 class SfdcController < ApplicationController
   def push
     # parameter check and redirect
-    redirect_flg = false
-    ps = ["id","userid","usertime","usermes","usermesen","ansno",
-          "feedbackdatetime","feedbackjudge","adminjudge","created"]
-    ps.each do |p|
-      unless params[p]
-        redirect_flg = true
-        redirect_to action: "index"
-      end
-    end
+    result_flg = false
     unless params["h"] == "Nttdata1"
-      redirect_to action: "index"
-      redirect_flg = true
+      result_flg = true
     end
 
-    if redirect_flg
-      render :text => "{info: {status: false}}"
-    else
-      render :text => "{info: {status: true}}"
+    # main progress 
+    if result_flg
+      body = request.body.read
+      json_request = JSON.parse(body)
+      #p "test",json_request
+      json_request.each do |j|
+        sc = SfdcCase.new
+        sc.set_datas(j)
+        sc.save
+      end
     end
+
+    # render progress
+    result_hash = {"info" => {"status" => result_flg}}
+    render :plain => result_hash.to_json
   end
 
   def index
@@ -37,8 +38,9 @@ class SfdcController < ApplicationController
             }
     
 
-    SfdcCase.set_datas(datas)
-    
-    render :text => "test"    
+    sc = SfdcCase.new
+   result = sc.set_datas(datas)
+
+    render :text => result.to_s
   end
 end

@@ -5,5 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-sql = "create table post( id int primary key, userid varchar(20), usertime datetime, usermes text, ansno varchar(255), feedbackdatetime datetime, feedbackjudge int, adminjudge int, created datetime);"
+sql = "create table sfdc_cases(  id int , userid__c varchar(20),  usertime__c datetime, usermes__c text, usermesen__c text, ansno__c varchar(255), feedbackdatetime__c datetime, feedbackjudge__c int, adminjudge__c int, createddate datetime);"
+
 ActiveRecord::Base.connection.execute(sql)

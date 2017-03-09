@@ -1,6 +1,6 @@
 class SfdcCase < ActiveRecord::Base
   self.table_name = 'salesforce.case'
-
+  
   def set_datas(datas)
     ph = {"id" => "id",
           "userid" => "userid__c",

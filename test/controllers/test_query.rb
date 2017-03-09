@@ -10,7 +10,7 @@ http.use_ssl = false
 
 
 datas = [
-  {"id" => 1,
+  {"id" => 27,
    "userid" => "usertestid",
    "usertime" => Time.now,
    "usermes" => "テストテスト",
@@ -21,7 +21,7 @@ datas = [
    "adminjudge" => 0,
    "created" => Time.now
   },
-  {"id" => 2,
+  {"id" => 28,
    "userid" => "usertestid2",
    "usertime" => Time.now,
    "usermes" => "テストテスト2",

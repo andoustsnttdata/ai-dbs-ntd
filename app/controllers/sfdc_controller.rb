@@ -3,7 +3,7 @@ class SfdcController < ApplicationController
   def push
     # parameter check and redirect
     result_flg = false
-    unless params["h"] == "Nttdata1"
+    if params["h"] == "Nttdata1"
       result_flg = true
     end
 
